@@ -4,14 +4,13 @@ User = get_user_model()
 
 
 def create_user(
-        username: str,
-        password: str,
-        email: str = None,
-        first_name: str = None,
-        last_name: str = None,
+    username: str,
+    password: str,
+    email: str = None,
+    first_name: str = None,
+    last_name: str = None,
 ) -> User:
     extra_fields = {}
-
     if email:
         extra_fields["email"] = email
     if first_name:
@@ -31,14 +30,14 @@ def get_user(user_id: int) -> User:
 
 
 def update_user(
-        user_id: int,
-        username: str = None,
-        password: str = None,
-        email: str = None,
-        first_name: str = None,
-        last_name: str = None,
+    user_id: int,
+    username: str = None,
+    password: str = None,
+    email: str = None,
+    first_name: str = None,
+    last_name: str = None,
 ) -> None:
-    user = User.objects.get(id=user_id)
+    user = get_user(user_id)
 
     if username:
         user.username = username
